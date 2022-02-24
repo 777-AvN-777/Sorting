@@ -1,21 +1,24 @@
 import java.util.*;
-public class BubbleSort
+public class NewSort
 {
-	public static void bubbleSort(int arr[],int n)
+	public static void selectionSort(int arr[],int n)
 	{
-	    int j,k;
-	    for (j=0;j<n-1;j++)
-	    {
-	        for (k=0;k<n-j-1;k++)
-	        {
-	            if (arr[k]>arr[k+1])
-	            {
-	                int temp = arr[k];
-	                arr[k] = arr[k+1];
-	                arr[k+1] = temp;
-	            }
-	        }
-	    }
+		int pos;
+		int temp;
+		for (int i=0;i<n;i++)
+		{
+			pos = i;
+			for (int j=i+1;j<n;j++)
+			{
+				if (arr[j]<arr[pos])
+				{
+					pos = j;
+				}
+			}
+			temp = arr[pos];
+			arr[pos] = arr[i];
+			arr[i] = temp;
+		}
 	}
 	public static void main(String[] args)
 	{
@@ -29,7 +32,7 @@ public class BubbleSort
 			System.out.print("Enter a number - ");
 			arr[i] = sc.nextInt();
 		}
-	    bubbleSort(arr,n);
+	    selectionSort(arr,n);
 	    System.out.println("\nThe sorted array is:");
 	    for (int i=0;i<n;i++)
 	    {
